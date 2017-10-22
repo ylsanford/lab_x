@@ -1,6 +1,5 @@
-<h1>Editing practice</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @practice %> |
-<%= link_to 'Back', practices_path %>
+<%- model_class = Practice -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Practice %></h1>
+</div>
+<%= render :partial => 'form' %>
