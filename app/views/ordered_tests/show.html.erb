@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @ordered_test.patient %>
+</p>
+
+<%= link_to 'Edit', edit_ordered_test_path(@ordered_test) %> |
+<%= link_to 'Back', ordered_tests_path %>
