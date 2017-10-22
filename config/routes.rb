@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :practices
+
   resources :providers
 
   resources :ordered_tests
