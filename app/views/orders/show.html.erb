@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Order %></h1>
+</div>
 
-<p>
-  <strong>Collection date time:</strong>
-  <%= @order.collection_date_time %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:collection_date_time) %></dt>
+      <dd><pre class="prettyprint"><%= @order.collection_date_time %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:test_type) %></dt>
+      <dd><pre class="prettyprint"><%= @order.test_type %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Test type:</strong>
-  <%= @order.test_type %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              orders_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_order_path(@order), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              order_path(@order),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @order.patient %>
-</p>
-
-<p>
-  <strong>Practice:</strong>
-  <%= @order.practice %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
