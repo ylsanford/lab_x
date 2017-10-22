@@ -1,0 +1,15 @@
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :collection_date_time %>
+    <%= f.input :test_type %>
+    <%= f.association :user %>
+    <%= f.association :patient %>
+    <%= f.association :practice %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

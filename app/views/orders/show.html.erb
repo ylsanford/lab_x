@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Collection date time:</strong>
+  <%= @order.collection_date_time %>
+</p>
+
+<p>
+  <strong>Test type:</strong>
+  <%= @order.test_type %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @order.patient %>
+</p>
+
+<p>
+  <strong>Practice:</strong>
+  <%= @order.practice %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
