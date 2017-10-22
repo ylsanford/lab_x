@@ -1,6 +1,5 @@
-<h1>Editing ordered_test</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @ordered_test %> |
-<%= link_to 'Back', ordered_tests_path %>
+<%- model_class = OrderedTest -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => OrderedTest %></h1>
+</div>
+<%= render :partial => 'form' %>
