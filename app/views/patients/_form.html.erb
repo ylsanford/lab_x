@@ -1,20 +1,64 @@
-<%= simple_form_for(@patient) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :p_first_name %>
-    <%= f.input :p_last_name %>
-    <%= f.input :p_middle_name %>
-    <%= f.input :p_birthday %>
-    <%= f.input :p_address %>
-    <%= f.input :p_address_2 %>
-    <%= f.input :p_city %>
-    <%= f.input :p_state %>
-    <%= f.input :p_zip_code %>
-    <%= f.association :practice %>
+<%= form_for @patient, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :p_first_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :p_first_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_last_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :p_last_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_middle_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :p_middle_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_birthday, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :p_birthday, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_address, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :p_address, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_address_2, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :p_address_2, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_city, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :p_city, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_state, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :p_state, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :p_zip_code, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :p_zip_code, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  patients_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

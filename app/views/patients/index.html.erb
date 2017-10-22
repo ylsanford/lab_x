@@ -1,25 +1,28 @@
-<h1>Listing patients</h1>
-
-<table>
+<%- model_class = Patient -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Patient %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>P first name</th>
-      <th>P last name</th>
-      <th>P middle name</th>
-      <th>P birthday</th>
-      <th>P address</th>
-      <th>P address 2</th>
-      <th>P city</th>
-      <th>P state</th>
-      <th>P zip code</th>
-      <th>Practice</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:p_first_name) %></th>
+      <th><%= model_class.human_attribute_name(:p_last_name) %></th>
+      <th><%= model_class.human_attribute_name(:p_middle_name) %></th>
+      <th><%= model_class.human_attribute_name(:p_birthday) %></th>
+      <th><%= model_class.human_attribute_name(:p_address) %></th>
+      <th><%= model_class.human_attribute_name(:p_address_2) %></th>
+      <th><%= model_class.human_attribute_name(:p_city) %></th>
+      <th><%= model_class.human_attribute_name(:p_state) %></th>
+      <th><%= model_class.human_attribute_name(:p_zip_code) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @patients.each do |patient| %>
       <tr>
+        <td><%= patient.id %></td>
         <td><%= patient.p_first_name %></td>
         <td><%= patient.p_last_name %></td>
         <td><%= patient.p_middle_name %></td>
@@ -29,15 +32,21 @@
         <td><%= patient.p_city %></td>
         <td><%= patient.p_state %></td>
         <td><%= patient.p_zip_code %></td>
-        <td><%= patient.practice %></td>
-        <td><%= link_to 'Show', patient %></td>
-        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l patient.created_at, format: :long %></td>
+        <td>
+          <%= link_to patient_path(patient), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to patient_path(patient), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Patient', new_patient_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_patient_path,
+            :class => 'btn btn-primary' %>
